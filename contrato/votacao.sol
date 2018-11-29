@@ -1,13 +1,5 @@
 pragma solidity 0.4.25;
 
-/**
-@title ContratoVotacaoAdm
-@notice Contrato inteligente para votacao de administrador
-@author Victoria Piretti
-*/
-
-  pragma solidity 0.4.25;
-
    contract ContratoVotacaoAdm {
  
   struct Proposta {
