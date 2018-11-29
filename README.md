@@ -1,1 +1,2 @@
-# Projeto de Smart Contract de votação
+# Smart Contract
+Contrato Inteligente de votação para nova administração
