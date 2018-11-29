@@ -6,25 +6,30 @@ pragma solidity 0.4.25;
 @author Victoria Piretti
 */
 
-    contract ContratoVotacaoAdm {
+  pragma solidity 0.4.25;
+
+   contract ContratoVotacaoAdm {
  
   struct Proposta {
-        string nome;
-        bool existe;
+      string nome;
+      bool existe;
   }
 
   struct Votante {
-        address idVotante; 
-        bool votou;  
-        bool existe;
+      bool votou;  
+      bool existe;
+  }
+  
+  struct Candidato {
+      string nome;
+      uint id;
+      uint contagemVotos;
   }
  
   //Informações gerais da Votacao
-  mapping(address => Votante) public votantes;
-  uint dataInicioVotacao;
-  uint dataFimVotacao;
+  mapping (address => Votante) public votantes;
+  mapping (uint => Candidato) public candidatos;
   uint totalVotantes;
-  mapping (address => bool) public votantes;
 
     constructor () public {
         Candidato memory candidato1 = Candidato (1, "Picasso", 0);
@@ -35,28 +40,22 @@ pragma solidity 0.4.25;
         candidatos[2] = candidato2;
         contagemCandidatos = contagemCandidatos + 1;
         
-        Candidato memory candidato3 = Candidato (3, "Michelangelo", 0);
-        candidatos[3] = candidato3;
-        contagemCandidatos = contagemCandidatos + 1;
     }
 
     function votar (uint idVotante) public {
         Votante memory quemEstaVotando = votantes[msg.sender];
-        if (quemEstaVotando.existe);
-        if (quemEstaVotando.votou==false);
-        if (CandidatoId > 0 => contagemCandidatos);
+        require (quemEstaVotando.existe);
+        require (quemEstaVotando.votou==false);
+        require (Candidato > 0 = contagemCandidatos);
     }
     
-    function resultado () public view returns (string, uint)  {
-        if (candidatos[1].contagemVotos >= candidatos[2].contagemVotos && candidatos[1].contagemVotos > candidatos[3].contagemVotos) {
-           return (candidatos[1].nome, candidatos[1].contagemVotos);
+    function resultado () public view returns (string, uint) {
+        if (candidato[1].contagemVotos >= candidato[2].contagemVotos {
+           return (candidato[1].nome, candidato[1].contagemVotos);
         }
-        if (candidatos[2].contagemVotos >= candidatos[1].contagemVotos && candidatos[2].contagemVotos > candidatos[3].contagemVotos) {
-           return (candidatos[2].nome, candidatos[2].contagemVotos);
-        }
-        if (candidatos[3].contagemVotos >= candidatos[1].contagemVotos && candidatos[3].contagemVotos > candidatos[2].contagemVotos) {
-           return (candidatos[3].nome, candidatos[3].contagemVotos);
-        }   
+        if (candidato[2].contagemVotos >= candidato[1].contagemVotos {
+           return (candidato[2].nome, candidato[2].contagemVotos);
+        } 
            
     }
     
